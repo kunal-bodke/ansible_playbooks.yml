@@ -1,0 +1,8 @@
+---
+- hosts: all
+  become: true
+  become_method: sudo
+  tasks:
+    - name: apply date and time
+      command: date
+      run_once: true

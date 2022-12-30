@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  become: true
+  become_method: sudo
+  tasks:
+  - name: copying file
+    copy: src=/home/ubuntu/hide_file dest=/etc/ansible

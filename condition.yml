@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  become: true
+  become_method: sudo
+  tasks:
+  - name: install httpd..
+    yum: name=httpd state=latest
+    when: ansible_os_family == "redhat"

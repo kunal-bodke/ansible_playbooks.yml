@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+  become: true
+  become_method: sudo
+  vars_prompt:
+  - name: package1
+    prompt: Enter package1
+    private: no
+  - name: package2
+    prompt: Enter package2
+    private: no
+  tasks:
+  - name: installing {{package1}}
+    apt: name={{package1}} state=present
+    ignore_errors: true
+  - name: installing {{package2}}
+    apt: name:{{package2}} state=present
+    ignore_errors: true

@@ -1,0 +1,11 @@
+---
+- hosts: all
+  become: true
+  become_method: sudo
+  tasks:
+  - name: task1
+    apt: name=apache2 state=present
+    delegate_to: localhost
+  - name: task2
+    apt: name=apache2 state=present
+    delegate_to: 34.207.67.82

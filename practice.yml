@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  become: true
+  become_method: sudo
+  vars:
+    - package1: "open-jdk"
+    - package2: "git"
+  tasks:
+    - name: install package1
+      apt: name={{package1}} state=absent
+    - name: install package2
+      apt: name={{package2}} state=absent

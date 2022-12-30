@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  become: true
+  become_method: sudo
+  tasks:
+  - name: check the lists
+    command: "ls /var/www/html"
+    register: content_output
+  - name: display the content
+    debug:
+      var: content_output

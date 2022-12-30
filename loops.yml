@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  become: true
+  become_method: sudo
+  tasks:
+  - name: installing multiple packages
+    apt:
+      name: ["apache2","git","docker.io","default-jdk"]
+      state: present
+    - name: restart apache2 service
+      service: name=apache2 state=restarted

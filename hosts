@@ -1,0 +1,2 @@
+44.201.182.60 ansible_user=ubuntu ansible_ssh_private_key_file=/etc/ansible/keypair1.pem
+34.207.67.82 ansible_user=ubuntu ansible_ssh_private_key_file=/etc/ansible/keypair1.pem

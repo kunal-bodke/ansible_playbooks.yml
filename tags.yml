@@ -1,0 +1,17 @@
+---
+- hosts: localhost
+  become: true
+  become_method: sudo
+  tasks:
+  - name: first task
+    apt: name=git state=present
+    tags: git
+  - name: second task
+    apt: name=docker.io state=present
+    tags: docker
+  - name: third task
+    apt: name=default-jdk state=present
+    tags: java
+  - name: fourt task
+    apt: name=apache2 state=present
+    tags: apache2

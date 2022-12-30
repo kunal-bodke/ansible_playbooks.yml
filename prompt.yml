@@ -1,0 +1,19 @@
+---
+- hosts: localhost
+  become: true
+  become_method: sudo
+  vars_prompt:
+  - name: package1
+    prompt: Enter your first task
+    private: no
+  - name: package2
+    prompt: Enter your second task
+  - name: package3
+    prompt: Enter your third task
+  tasks:
+  - name: installing {{package1}}
+    apt: name={{package1}} state=absent
+  - name: installing {{package2}}
+    apt: name={{package2}} state=absent
+  - name: installing {{package3}}
+    apt: name={{package3}} state=present

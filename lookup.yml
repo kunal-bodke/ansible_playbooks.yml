@@ -1,0 +1,9 @@
+---
+- hosts: all
+  become: true
+  become_method: sudo
+  vars:
+    lookup_example: "{{lookup('file','/home/ubuntu/lookup_file')}}"
+  tasks:
+  - name: executing lookup plugin - {{lookup_example}}
+    apt: name{{lookup_example}} state=present

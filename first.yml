@@ -1,0 +1,22 @@
+---
+# Target section
+- hosts: all
+  become: true
+  become_method: sudo
+
+# Variable section
+  vars:
+    package1: "apache2"
+    package2: "git"
+    package3: "default-jdk"
+
+# Task  section
+  tasks:
+  - name: "first task"
+    apt: name={{package1}} state=present
+  - name: "second task"
+    apt: name={{package2}} state=present
+  - name: "third task"
+    apt: name={{package3}} state=present  
+
+

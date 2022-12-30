@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  become: true
+  become_method: sudo
+  tasks:
+  - name: installing package1
+    apt: name={{package1}} state=present
+    ignore_errors: true
+  - name: installing package2
+    apt: name={{package2}} state=present
+    ignore_errors: true
+
+
+
+#use ==> ansible_playbook command_line.yml --extra-vars '{"package1":"git","package2":"apache2"}'

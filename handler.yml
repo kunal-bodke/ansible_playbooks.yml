@@ -1,0 +1,13 @@
+---
+- hosts: all
+  become: true
+  become_method: sudo
+  tasks:
+    - name: this is first task
+      apt: name=apache2 state=present
+    - name: this is second task
+      copy: src=/home/ubuntu/slavia.html dest=/var/www/html
+      notify: restart_apache2
+  handlers:    
+    - name: restart_apache2
+      service: name=apache2 state=restarted
